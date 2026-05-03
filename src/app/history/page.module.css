@@ -1,0 +1,128 @@
+.historyPage {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+}
+
+.filterBtn {
+  padding: 8px 16px;
+  border: 1px solid var(--surface-border);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.filterBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterBtn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.tableContainer {
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.02);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--surface-border);
+  font-size: 0.95rem;
+}
+
+.row:hover {
+  background: rgba(0, 112, 243, 0.02);
+}
+
+.titleCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.fileIcon {
+  font-size: 1.2rem;
+}
+
+.categoryTag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.categoryTag[data-category="Logistics"] { background: rgba(0, 112, 243, 0.1); color: #0070f3; }
+.categoryTag[data-category="Manufacturing"] { background: rgba(121, 40, 202, 0.1); color: #7928ca; }
+.categoryTag[data-category="Procurement"] { background: rgba(0, 166, 90, 0.1); color: #00a65a; }
+.categoryTag[data-category="Energy"] { background: rgba(255, 165, 0, 0.1); color: #ff8c00; }
+
+.amount strong {
+  font-size: 1.1rem;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status[data-status="Verified"] { color: #00a65a; }
+.status[data-status="Analyzing"] { color: #0070f3; }
+.status[data-status="Pending"] { color: #666; }
+
+.time {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.loading, .empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+}

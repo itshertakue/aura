@@ -1,0 +1,10 @@
+kind: "AppStack"
+apiVersion: "v1beta"
+runConfig:
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+env:
+  - variable: GOOGLE_GENERATIVE_AI_API_KEY
+    availability: ["BUILD", "RUNTIME"]
+    secret: GOOGLE_GENERATIVE_AI_API_KEY

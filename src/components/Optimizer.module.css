@@ -1,0 +1,154 @@
+.optimizer {
+  margin-top: 32px;
+  padding: 24px;
+  border: 1px solid var(--secondary);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.aiBadge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--secondary);
+  background: rgba(0, 255, 136, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+}
+
+.header h3 {
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+
+.totalImpact {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.totalImpact span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.totalImpact strong {
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.recommendationList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.recCard {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--surface-border);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.recCard:hover {
+  border-color: var(--secondary);
+  background: #fff;
+  transform: scale(1.02);
+}
+
+.recHeader {
+  display: flex;
+  gap: 16px;
+}
+
+.recIcon {
+  font-size: 2rem;
+  background: #f4f7f6;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.recTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recTitle {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.recDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.recStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--surface-border);
+}
+
+.recStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.applyBtn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.applyBtn:hover {
+  box-shadow: 0 0 15px var(--secondary-glow);
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--secondary);
+  font-weight: 600;
+}

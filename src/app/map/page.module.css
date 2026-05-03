@@ -1,0 +1,203 @@
+.mapPage {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.statsOverview {
+  display: flex;
+  gap: 24px;
+}
+
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.miniStat span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.miniStat strong {
+  font-size: 1.5rem;
+}
+
+.mapContainer {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%);
+}
+
+.worldMap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 112, 243, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 112, 243, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.nodeWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.node {
+  width: 16px;
+  height: 16px;
+  background: var(--node-color);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 15px var(--node-color);
+  transition: transform 0.2s;
+}
+
+.nodeWrapper:hover .node {
+  transform: scale(1.3);
+}
+
+.nodePulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid var(--node-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  padding: 16px;
+  z-index: 20;
+  pointer-events: none;
+  animation: slideUp 0.2s ease-out;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.tooltipHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--surface-border);
+  padding-bottom: 8px;
+}
+
+.nodeIntensity {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tooltipBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tStat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.tStat span {
+  color: var(--text-muted);
+}
+
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.line {
+  stroke: var(--primary);
+  stroke-width: 1.5;
+  stroke-dasharray: 5;
+  opacity: 0.2;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+.legend {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
