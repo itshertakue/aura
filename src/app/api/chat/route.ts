@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       });
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const context = `
       You are Aura's Climate Copilot, an expert in carbon intelligence and supply chain optimization.
@@ -37,8 +37,12 @@ export async function POST(req: Request) {
       If relevant, suggest ways to reduce carbon taxes or optimize specific categories (Logistics, Manufacturing, etc.).
     `;
 
-    const result = await model.generateContent([context, message]);
+    console.log('Sending prompt to Gemini...');
+    const fullPrompt = `${context}\n\nUser Question: ${message}`;
+    
+    const result = await model.generateContent(fullPrompt);
     const responseText = result.response.text();
+    console.log('Gemini responded successfully');
 
     return NextResponse.json({
       role: 'assistant',
@@ -48,9 +52,9 @@ export async function POST(req: Request) {
         { label: 'Est. Tax', value: stats.taxSavings }
       ]
     });
+
   } catch (error) {
     console.error('Chat error:', error);
     return NextResponse.json({ error: 'Failed to reach Copilot' }, { status: 500 });
   }
 }
-
